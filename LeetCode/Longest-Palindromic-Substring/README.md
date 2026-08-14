@@ -1,3 +1,19 @@
 # Longest Palindromic Substring
 
-Level up your coding skills and quickly land a job. This is the best place to expand your knowledge and get prepared for your next interview.
+Can you solve this real interview question? Longest Palindromic Substring - Given a string s, return the longest palindromic substring in s.
+
+ 
+
+Example 1:
+
+
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+
+
+Example 2:
+
+
+Input: s = "cbbd"
+Output: "bb"
