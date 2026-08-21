@@ -18,21 +18,20 @@
 18                }
 19            }
 20            while(stillneed == 0){
-21                // shrinking the window
-22                if(i-j+1 < len){
-23                    len = i-j+1;
-24                    start = j;
-25                }
-26                char leftChar = s.charAt(j);
-27                if(map.containsKey(leftChar)){
-28                    map.put(leftChar, map.get(leftChar) + 1);
-29                    if(map.get(leftChar) > 0)
-30                        stillneed++;
-31                    }
-32                j++;
-33            }
-34        }
-35        String str = (len == Integer.MAX_VALUE) ? "":s.substring(start,start+len);
-36        return str;
-37    }
-38}
+21                if(i-j+1 < len){
+22                    len = i-j+1;
+23                    start = j;
+24                }
+25                char leftChar = s.charAt(j);
+26                if(map.containsKey(leftChar)){
+27                    map.put(leftChar, map.get(leftChar) + 1);
+28                    if(map.get(leftChar) > 0)
+29                        stillneed++;
+30                    }
+31                j++;
+32            }
+33        }
+34        String str = (len == Integer.MAX_VALUE) ? "":s.substring(start,start+len);
+35        return str;
+36    }
+37}
