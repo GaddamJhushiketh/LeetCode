@@ -1,0 +1,52 @@
+1class Solution {
+2    public List<Integer> getPrimeFactors(int x){
+3        List<Integer> fact = new ArrayList<>();
+4        for(int p = 2;p*p<=x;p++){
+5            if(x%p == 0){
+6                fact.add(p);
+7                while(x%p == 0){
+8                    x/=p;
+9                }
+10            }
+11        }
+12        if(x>1){
+13            fact.add(x);
+14        }
+15        return fact;
+16    }
+17    public int longestSubarray(int[] nums, int k) {
+18        int n = nums.length;
+19        HashMap<Integer,Integer> freq = new HashMap<>();
+20        int l =0;
+21        int ans = 0;
+22        int count = 0;
+23        for(int r = 0;r<n;r++){
+24            List<Integer> factor = getPrimeFactors(nums[r]);
+25            for(int p : factor){
+26                if(!freq.containsKey(p)){
+27                    count++;
+28                    freq.put(p,1);
+29                }
+30                else{
+31                    freq.put(p,freq.get(p)+1);
+32                }
+33            }
+34            while(count>k){
+35                List<Integer> lfactor = getPrimeFactors(nums[l]);
+36                for(int p: lfactor){
+37                    int c = freq.get(p);
+38                    if(c == 1){
+39                        freq.remove(p);
+40                        count--;
+41                    }
+42                    else{
+43                        freq.put(p,c-1);
+44                    }
+45                }
+46                l++;
+47            }
+48            ans = Math.max(ans,r-l+1);
+49        }
+50        return ans;
+51    }
+52}
