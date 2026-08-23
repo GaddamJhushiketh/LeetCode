@@ -1,0 +1,23 @@
+1class Solution {
+2    public List<List<Integer>> findDisappearedNumbers(int[] nums, int lower, int upper) {
+3        List<List<Integer>> ans = new ArrayList<>();
+4        Arrays.sort(nums);
+5        int next = lower;
+6        for(int n : nums){
+7            if(n<lower){
+8                continue;
+9            }
+10            if(n>upper){
+11                break;
+12            }
+13            if(n>next){
+14                ans.add(Arrays.asList(next,n-1));
+15            }
+16            next = Math.max(next,n+1);
+17        }
+18        if(next<=upper){
+19            ans.add(Arrays.asList(next,upper));
+20        }
+21        return ans;
+22    }
+23}
