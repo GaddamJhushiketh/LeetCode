@@ -1,7 +1,7 @@
 class Solution {
     public String digitSum(String s, int k) {
         while (s.length() > k) {
-            StringBuilder tmp = new StringBuilder(); // The string after each round
+            StringBuilder tmp = new StringBuilder();
             int n = s.length();
             for (int i = 0; i < n; i += k) {
                 int val = 0;
